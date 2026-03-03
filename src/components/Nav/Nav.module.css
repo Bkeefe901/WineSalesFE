@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav > a > h3 {
+  color: var(--form);
+}
+
+nav > a > h3:hover {
+  color: var(--darkForm);
+}
