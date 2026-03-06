@@ -1,0 +1,13 @@
+.saleInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputForm {
+    width: 40%;
+    padding: 25px;
+    background-color: antiquewhite;
+    color: var(--background);
+}
