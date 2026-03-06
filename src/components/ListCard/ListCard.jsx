@@ -1,4 +1,5 @@
 import style from './ListCard.module.css';
+import axios from 'axios';
 import { useUser } from '../../context/userContext/userContext';
 import { useAuth } from '../../context/authContext/authContext';
 import { useState } from 'react';
@@ -37,6 +38,7 @@ export default function ListCard({ setList, saleData }) {
 
         if(userConfirmed){
             try {
+                console.log(obj._id);
                 await axios.delete(`http://localhost:3000/api/sale/${obj._id}`, config);
                 alert(`✅ Sale has been deleted from database!`);
                 setList((prev) => !prev); // refreshes sale list
