@@ -32,27 +32,7 @@ export default function ListCard({ setList, saleData, search }) {
     });
   }
 
-  
 
-  // async function handleClick(obj) {
-
-  //     const saleObj = {
-  //         user: user._id,
-  //         invoiceId: obj.invoiceId,
-  //         saleDate: obj.saleDate,
-  //         shopName: obj.shopName,
-  //         total: obj.total,
-  //     }
-  //     try {
-  //         await axios.put(`http://localhost:3000/api/sale/${obj._id}`, saleObj, options);
-  //         alert(`✅ Sale has succesfully been updated`);
-
-  //     } catch (err) {
-  //         console.error(err.message);
-  //         alert(`❌ Error - sale failed to update`);
-  //     }
-
-  // }
 
   async function handleDelete(obj) {
     const config = { ...options, data: { id: user._id } };
@@ -75,7 +55,30 @@ export default function ListCard({ setList, saleData, search }) {
     }
   }
 
-  const saleInfo = saleData.map((obj, i) => {
+  const filteredData = saleData.filter((sale) => {
+    let date = sale.saleDate.split('T')[0];
+
+    if(search.startDate !== "" && date < search.startDate){
+        return false;
+    }
+    if(search.endDate !== "" && date > search.endDate){
+        return false;
+    }
+    if(search.account !== "" && !(sale.shopName.includes(search.account))){
+        return false;
+    }
+    if(search.invoiceId !== "" && !(sale.invoiceId.includes(search.invoiceId))){
+        return false;
+    }
+
+    return true;
+
+  });
+
+
+
+
+  const saleInfo = filteredData.map((obj, i) => {
 
   
     let date = obj.saleDate.split("T")[0];

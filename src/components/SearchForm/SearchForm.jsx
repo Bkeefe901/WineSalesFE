@@ -8,6 +8,7 @@ export default function SearchForm({ setSearch, search }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setSearch({startDate: "", endDate: "", account: "", invoiceId: ""});
   }
 
   return (
@@ -30,7 +31,7 @@ export default function SearchForm({ setSearch, search }) {
           Invoice Number
           <input type="string" onChange={handleChange} name="invoiceId" value={search.invoiceId}/>
         </label>
-        <input type="submit" value="Search" />
+        <input type="submit" value="Clear Filters" />
       </form>
     </div>
   );
