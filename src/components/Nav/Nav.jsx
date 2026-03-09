@@ -10,7 +10,7 @@ export default function Nav() {
 
   function handleLogout() {
     logout();
-    nav("/auth");
+    nav("/");
   }
 
   return (
@@ -26,7 +26,7 @@ export default function Nav() {
         </>
       ) : (
         <>
-          <Link to={"/auth"}>
+          <Link to={"/"}>
             <h3>Login/SignUp</h3>
           </Link>
         </>
