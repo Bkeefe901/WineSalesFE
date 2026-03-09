@@ -43,7 +43,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     if (userConfirmed) {
       try {
         console.log(obj._id);
-        await axios.delete(`http://localhost:3000/api/sale/${obj._id}`, config);
+        await axios.delete(`https://winesalesbe.onrender.com/api/sale/${obj._id}`, config);
         alert(`✅ Sale has been deleted from database!`);
         setList((prev) => !prev); // refreshes sale list
       } catch (err) {

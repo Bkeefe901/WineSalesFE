@@ -23,7 +23,7 @@ export default function EditRow({ edit, setEdit, setList }) {
         total: edit.total,
       }
 
-      await axios.put(`http://localhost:3000/api/sale/${edit.id}`, updatedSale, options)
+      await axios.put(`https://winesalesbe.onrender.com/api/sale/${edit.id}`, updatedSale, options)
       setList((prev) => !prev);
       setEdit({ ...edit, on: false });
     } catch (err){ 

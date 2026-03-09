@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [cookies, setCookies, removeCookie] = useCookies();
 
-  const connStr = "http://localhost:3000/api";
+  const connStr = "https://winesalesbe.onrender.com/api";
 
   async function signUp(formData) {
     

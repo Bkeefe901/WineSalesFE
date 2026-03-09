@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [list, setList] = useState(false); // toggle to update list (dependency in useEffect)
   const { user } = useUser();
   const { cookies } = useAuth();
-  const connStr = `http://localhost:3000/api`;
+  const connStr = `https://winesalesbe.onrender.com/api`;
 
   useEffect(() => {
     let isMounted = true;

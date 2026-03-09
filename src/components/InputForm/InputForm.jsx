@@ -25,7 +25,7 @@ export default function InputForm({ setList }) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:3000/api/sale`, newSale, options);
+            await axios.post(`https://winesalesbe.onrender.com/api/sale`, newSale, options);
             setList((prev) => !prev);
             
         } catch (err) {
