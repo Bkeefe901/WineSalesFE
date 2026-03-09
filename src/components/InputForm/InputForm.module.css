@@ -5,9 +5,26 @@
     align-items: center;
 }
 
+
 .inputForm {
     width: 40%;
     padding: 25px;
     background-color: antiquewhite;
     color: var(--background);
+}
+
+.inputForm>label{
+    font-size: large;
+    font-weight: 600;
+}
+
+.inputForm>label>input{
+    height: 40px;
+    font-size: large;
+    border-radius: 10px;
+}
+
+.inputForm>input{
+    border: 2px solid black;
+    line-height: 5px;
 }

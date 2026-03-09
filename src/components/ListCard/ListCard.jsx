@@ -7,7 +7,7 @@ import { useState } from "react";
 // Components
 import EditRow from "../EditRow/EditRow";
 
-export default function ListCard({ setList, saleData, search }) {
+export default function ListCard({ setGrandTotal, setList, saleData, search }) {
   const [edit, setEdit] = useState({
     on: false,
     id: "",
@@ -55,6 +55,7 @@ export default function ListCard({ setList, saleData, search }) {
     }
   }
 
+  // Filter All Sales fetched for user by params in search form
   const filteredData = saleData.filter((sale) => {
     let date = sale.saleDate.split('T')[0];
 
@@ -74,6 +75,17 @@ export default function ListCard({ setList, saleData, search }) {
     return true;
 
   });
+
+  // Create total variable to show total of all filtered objects
+  let filteredTotal = 0;
+
+  filteredData.forEach((sale) => {
+    filteredTotal += sale.total;
+  });
+
+  setGrandTotal(filteredTotal);
+
+
 
 
 

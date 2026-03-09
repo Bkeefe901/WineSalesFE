@@ -1,6 +1,10 @@
 import style from "./SearchForm.module.css";
 
-export default function SearchForm({ setSearch, search }) {
+export default function SearchForm({ setSearch, search, setShowSearch }) {
+
+  function handleClick(){
+    setShowSearch((prev) => !prev);
+  }
 
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
@@ -33,6 +37,7 @@ export default function SearchForm({ setSearch, search }) {
         </label>
         <input type="submit" value="Clear Filters" />
       </form>
+      <button onClick={handleClick}>Hide Filters</button>
     </div>
   );
 }

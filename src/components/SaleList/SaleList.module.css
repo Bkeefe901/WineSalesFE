@@ -4,3 +4,9 @@
     justify-content: center;
     align-items: center;
 }
+
+.setListMain>button{
+    margin-top: 4px;
+    font-size: large;
+    line-height: 5px;
+}

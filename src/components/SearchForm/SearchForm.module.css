@@ -6,9 +6,31 @@
     margin-top: 20px;
 }
 
+.searchContainer>button {
+    margin-top: 4px;
+    font-size: large;
+    line-height: 5px;
+}
+
 .searchForm {
     width: 40%;
     padding: 25px;
     background-color: antiquewhite;
     color: var(--background);
+}
+
+.searchForm>label{
+    font-size: large;
+    font-weight: 600;
+}
+
+.searchForm>label>input{
+    height: 40px;
+    font-size: large;
+    border-radius: 10px;
+}
+
+.searchForm>input{
+    border: 2px solid black;
+    line-height: 5px;
 }
