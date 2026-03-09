@@ -6,13 +6,6 @@
     
 }
 
-.cardList{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .btn{
     width: 60px;
     font-size: medium;

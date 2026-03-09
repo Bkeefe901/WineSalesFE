@@ -52,7 +52,7 @@ export default function InputForm({ setList }) {
             <label>
                 Sale Date
                 <input 
-                    type="text"
+                    type="date"
                     name="saleDate"
                     value={newSale.saleDate}
                     onChange={handleChange}
