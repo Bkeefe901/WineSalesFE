@@ -40,6 +40,7 @@ export default function InputForm({ setList }) {
     return (
     <div className={style.saleInput}>
         <form className={style.inputForm} onSubmit={handleSubmit}>
+            <h1>Sale Input</h1>
             <label>
                 Invoice Id
                 <input 

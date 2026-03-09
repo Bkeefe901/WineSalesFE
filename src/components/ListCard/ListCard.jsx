@@ -7,7 +7,7 @@ import { useState } from "react";
 // Components
 import EditRow from "../EditRow/EditRow";
 
-export default function ListCard({ setList, saleData }) {
+export default function ListCard({ setList, saleData, search }) {
   const [edit, setEdit] = useState({
     on: false,
     id: "",
@@ -31,6 +31,8 @@ export default function ListCard({ setList, saleData }) {
       total: obj.total,
     });
   }
+
+  
 
   // async function handleClick(obj) {
 
@@ -74,7 +76,8 @@ export default function ListCard({ setList, saleData }) {
   }
 
   const saleInfo = saleData.map((obj, i) => {
-    // use edit state to decide if it needs to return inputs with obj data as placeholders or the real thing
+
+  
     let date = obj.saleDate.split("T")[0];
     return edit.on && edit.id == obj._id ? (
       <EditRow setList={setList} edit={edit} setEdit={setEdit} />

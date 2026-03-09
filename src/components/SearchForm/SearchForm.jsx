@@ -1,0 +1,37 @@
+import style from "./SearchForm.module.css";
+
+export default function SearchForm({ setSearch, search }) {
+
+  function handleChange(e) {
+    setSearch({ ...search, [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  return (
+    <div className={style.searchContainer}>
+      <form className={style.searchForm} onSubmit={handleSubmit}>
+        <h1>Filter Form</h1>
+        <label>
+          Start Date
+          <input type="date" onChange={handleChange} name="startDate" value={search.startDate}/>
+        </label>
+        <label>
+          End Date
+          <input type="date" onChange={handleChange} name="endDate" value={search.endDate}/>
+        </label>
+        <label>
+          Account Name
+          <input type="string" onChange={handleChange} name="account" value={search.account}/>
+        </label>
+        <label>
+          Invoice Number
+          <input type="string" onChange={handleChange} name="invoiceId" value={search.invoiceId}/>
+        </label>
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+  );
+}
