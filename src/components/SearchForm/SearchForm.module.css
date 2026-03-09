@@ -12,6 +12,11 @@
     line-height: 5px;
 }
 
+.searchForm>div>button {
+    font-size: medium;
+    width: 200px;
+}
+
 .searchForm {
     width: 40%;
     padding: 25px;

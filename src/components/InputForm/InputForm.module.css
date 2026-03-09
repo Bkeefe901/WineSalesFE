@@ -9,8 +9,13 @@
 .inputForm {
     width: 40%;
     padding: 25px;
-    background-color: antiquewhite;
+    background-color: burlywood;
     color: var(--background);
+}
+
+.inputForm>div>button {
+    font-size: medium;
+    width: 200px;
 }
 
 .inputForm>label{

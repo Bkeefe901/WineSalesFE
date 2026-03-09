@@ -18,7 +18,10 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
   return (
     <div className={style.searchContainer}>
       <form className={style.searchForm} onSubmit={handleSubmit}>
+        <div>
+        <button onClick={handleClick}>Hide Filters</button>
         <h1>Filter Form</h1>
+        </div>
         <label>
           Start Date
           <input type="date" onChange={handleChange} name="startDate" value={search.startDate}/>
@@ -37,7 +40,7 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
         </label>
         <input type="submit" value="Clear Filters" />
       </form>
-      <button onClick={handleClick}>Hide Filters</button>
+      
     </div>
   );
 }

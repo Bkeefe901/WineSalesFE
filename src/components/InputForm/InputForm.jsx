@@ -7,7 +7,7 @@ import axios from "axios";
 
 
 
-export default function InputForm({ setList }) {
+export default function InputForm({ setList, setShowInput }) {
     const { user } = useUser();
     const { cookies } = useAuth();
     let token = cookies.token;
@@ -21,6 +21,10 @@ export default function InputForm({ setList }) {
         shopName: "",
         total: 0,
     });
+
+    function handleClick(){
+        setShowInput((prev) => !prev);
+    }
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -40,7 +44,10 @@ export default function InputForm({ setList }) {
     return (
     <div className={style.saleInput}>
         <form className={style.inputForm} onSubmit={handleSubmit}>
-            <h1>Sale Input</h1>
+            <div>
+                <button onClick={handleClick}>Hide Form</button>
+                <h1>Sale Input</h1>
+            </div>
             <label>
                 Invoice Id
                 <input 

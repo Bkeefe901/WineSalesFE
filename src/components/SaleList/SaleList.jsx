@@ -16,14 +16,21 @@ export default function SaleList({ setList, saleData }) {
     // Toggle to display SearchForm
     const [showSearch, setShowSearch] = useState(false);
 
-    function handleClick(){
+    // Toggle to display InputForm
+    const [showInput, setShowInput] = useState(true);
+
+    function handleClick() {
         setShowSearch((prev) => !prev);
+    }
+
+    function handleInput() {
+        setShowInput((prev) => !prev);
     }
 
 
     return (
         <div className={style.setListMain}>
-            <InputForm setList={setList} />
+            {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
             {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>}
             <section>
                 <h1>Total of All Shown:</h1>
