@@ -20,8 +20,9 @@
 .searchForm {
     width: 40%;
     padding: 25px;
-    background-color: antiquewhite;
-    color: var(--background);
+    background-color: var(--form);
+    color: var(--text);
+    border-radius: 15px;
 }
 
 .searchForm>label{

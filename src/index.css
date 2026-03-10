@@ -1,7 +1,8 @@
 :root {
-  --background: black;
-  --text: white;
-  --form: grey;
+  --background: #432818;
+  --text: #FFE6A7;
+  --form: #6F1D1B;
+  --form2: #BB9457;
 }
 
 html,

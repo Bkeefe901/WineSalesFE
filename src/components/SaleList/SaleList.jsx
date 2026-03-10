@@ -30,8 +30,10 @@ export default function SaleList({ setList, saleData }) {
 
     return (
         <div className={style.setListMain}>
+            <section className={style.formContainer}>
             {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
             {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>}
+            </section>
             <section>
                 <h1>Total of All Shown:</h1>
                 <h3>{grandTotal.toFixed(2)}</h3>

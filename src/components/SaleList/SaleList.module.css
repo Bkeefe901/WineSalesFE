@@ -1,3 +1,12 @@
+/* .formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+
+
+
 .saleListMain {
     display: flex;
     flex-direction: column;

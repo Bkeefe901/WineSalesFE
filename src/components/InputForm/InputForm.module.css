@@ -9,8 +9,9 @@
 .inputForm {
     width: 40%;
     padding: 25px;
-    background-color: burlywood;
+    background-color: var(--form2);
     color: var(--background);
+    border-radius: 15px;
 }
 
 .inputForm>div>button {
