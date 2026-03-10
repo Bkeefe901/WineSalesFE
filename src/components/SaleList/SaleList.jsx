@@ -14,7 +14,7 @@ export default function SaleList({ setList, saleData }) {
     const [grandTotal, setGrandTotal] = useState(0);
     
     // Toggle to display SearchForm
-    const [showSearch, setShowSearch] = useState(false);
+    const [showSearch, setShowSearch] = useState(true);
 
     // Toggle to display InputForm
     const [showInput, setShowInput] = useState(true);
