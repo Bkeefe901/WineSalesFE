@@ -39,3 +39,10 @@
     border: 2px solid black;
     line-height: 5px;
 }
+
+
+@media screen and (max-width: 700px) {
+    .searchForm {
+        width: 95%;
+    }
+}
