@@ -1,6 +1,6 @@
 /* .formContainer{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 } */
 
@@ -14,9 +14,16 @@
     align-items: center;
 }
 
-.setListMain>button{
+/* .setListMain>button{
     margin-top: 4px;
     font-size: large;
     line-height: 5px;
     width: 300px;
+} */
+
+.formContainer>button{
+    margin-top: 4px;
+    font-size: large;
+    line-height: 5px;
+    width: 250px;
 }

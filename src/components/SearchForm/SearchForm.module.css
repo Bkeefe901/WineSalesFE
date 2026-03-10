@@ -3,7 +3,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
 }
 
 .searchContainer>button {
@@ -18,7 +17,7 @@
 }
 
 .searchForm {
-    width: 40%;
+    width: 400px;
     padding: 25px;
     background-color: var(--form);
     color: var(--text);
