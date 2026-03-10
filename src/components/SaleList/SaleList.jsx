@@ -34,11 +34,16 @@ export default function SaleList({ setList, saleData }) {
             {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
             {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>}
             </section>
-            <section>
-                <h1>Total of All Shown:</h1>
-                <h3>{grandTotal.toFixed(2)}</h3>
-                <h1>Commision:</h1>
-                <h3>{(grandTotal * 0.03).toFixed(2)}</h3>
+            <section className={style.totals}>
+                <div>
+                    <h1>Total of All Shown:</h1>
+                    <h3>{grandTotal.toFixed(2)}</h3>
+                </div>
+                <div>
+                    <h1>Commision:</h1>
+                    <h3>{(grandTotal * 0.03).toFixed(2)}</h3>
+                </div>
+                
             </section>
             <ListCard setGrandTotal={setGrandTotal} saleData={saleData} setList={setList} search={search} />
 
