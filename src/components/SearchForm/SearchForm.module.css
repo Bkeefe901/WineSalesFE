@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 45%;
 }
 
 .searchContainer>button {
@@ -17,7 +18,8 @@
 }
 
 .searchForm {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
     padding: 25px;
     background-color: var(--form);
     color: var(--text);
@@ -41,8 +43,8 @@
 }
 
 
-@media screen and (max-width: 700px) {
-    .searchForm {
-        width: 95%;
+@media screen and (max-width: 500px) {
+    .searchContainer {
+        width: 100%;
     }
 }
