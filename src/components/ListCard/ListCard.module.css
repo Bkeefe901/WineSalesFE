@@ -1,17 +1,27 @@
 .saleCard{
     width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     
 }
 
-.cardList{
+
+.tableContainer{
     display: flex;
-    flex-direction: column;
+    width: 100%;
     justify-content: center;
-    align-items: center;
 }
+
+.table{
+   width: 85%;
+}
+
+.table>thead>tr>th{
+    font-size: large;
+
+}
+
 
 .btn{
     width: 60px;

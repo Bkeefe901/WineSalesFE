@@ -97,21 +97,36 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     return edit.on && edit.id == obj._id ? (
       <EditRow setList={setList} edit={edit} setEdit={setEdit} />
     ) : (
-      <article key={i} className={style.saleCard}>
-        <h3>{obj.invoiceId}</h3>
-        <h3>{date}</h3>
-        <h3>{obj.shopName}</h3>
-        <h3>{obj.total}</h3>
-        <button className={style.btn} onClick={() => handleEdit(obj)}>Edit</button>
-        <button className={style.btn} onClick={() => handleDelete(obj)}>Delete</button>
-      </article>
+      <tr key={i}>
+        <td>{obj.invoiceId}</td>
+        <td>{date}</td>
+        <td>{obj.shopName}</td>
+        <td>{obj.total}</td>
+        <td><button className={style.btn} onClick={() => handleEdit(obj)}>Edit</button></td>
+        <td><button className={style.btn} onClick={() => handleDelete(obj)}>Delete</button></td>
+      </tr>
     );
   });
 
   return (
     <>
-      <div className={style.cardList}>
-        <article className={style.saleCard}>
+      <div className={style.tableContainer}>
+        <table className={style.table}>
+          <thead>
+            <tr>
+              <th>Invoice ID</th>
+              <th>Date</th>
+              <th>Account</th>
+              <th>Total</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {saleInfo}
+          </tbody>
+        </table>
+        {/* <article className={style.saleCard}>
           <h3>Invoice ID</h3>
           <h3>Date</h3>
           <h3>Account</h3>
@@ -119,7 +134,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
           <h3>Edit</h3>
           <h3>Delete</h3>
         </article>
-        {saleInfo}
+        {saleInfo} */}
       </div>
     </>
   );
