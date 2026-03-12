@@ -87,7 +87,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
 
 
 
-  filteredData.sort((a, b) => b.saleDate - a.saleDate);
+  filteredData.sort((a, b) => a.saleDate - b.saleDate);
 
 
   const saleInfo = filteredData.map((obj, i) => {
