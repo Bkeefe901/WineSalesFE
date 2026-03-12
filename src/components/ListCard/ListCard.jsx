@@ -2,7 +2,7 @@ import style from "./ListCard.module.css";
 import axios from "axios";
 import { useUser } from "../../context/userContext/userContext";
 import { useAuth } from "../../context/authContext/authContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Components
 import EditRow from "../EditRow/EditRow";
@@ -87,12 +87,12 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
 
   filteredData.sort((a, b) => new Date(b.saleDate) - new Date(a.saleDate));
 
-  const saleInfo = filteredData.map((obj, i) => {
+  const saleInfo = filteredData.map((obj) => {
     let date = obj.saleDate.split("T")[0];
     return edit.on && edit.id == obj._id ? (
       <EditRow setList={setList} edit={edit} setEdit={setEdit} />
     ) : (
-      <tr key={i}>
+      <tr key={obj._id}>
         <td>{obj.invoiceId}</td>
         <td>{date}</td>
         <td>{obj.shopName}</td>
@@ -127,16 +127,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
           </thead>
           <tbody>{saleInfo}</tbody>
         </table>
-        {/* <article className={style.saleCard}>
-          <h3>Invoice ID</h3>
-          <h3>Date</h3>
-          <h3>Account</h3>
-          <h3>Total</h3>
-          <h3>Edit</h3>
-          <h3>Delete</h3>
-        </article>
-        {saleInfo} */}
-      </div>
+     </div>
     </>
   );
 }

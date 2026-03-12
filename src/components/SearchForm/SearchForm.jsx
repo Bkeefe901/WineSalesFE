@@ -19,7 +19,7 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
     <div className={style.searchContainer}>
       <form className={style.searchForm} onSubmit={handleSubmit}>
         <div>
-        <button onClick={handleClick}>Hide Filters</button>
+        <button className={style.hideButton} onClick={handleClick}>Hide Filters</button>
         <h1>Filter Form</h1>
         </div>
         <label>

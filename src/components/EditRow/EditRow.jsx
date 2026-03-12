@@ -36,7 +36,7 @@ export default function EditRow({ edit, setEdit, setList }) {
   }
 
   return (
-    <tr className={style.tr}>
+    <tr key={edit.id} className={style.tr}>
       <td>
         <input
           type="text"

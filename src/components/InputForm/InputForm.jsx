@@ -45,7 +45,7 @@ export default function InputForm({ setList, setShowInput }) {
     <div className={style.saleInput}>
         <form className={style.inputForm} onSubmit={handleSubmit}>
             <div>
-                <button type='button' onClick={handleClick}>Hide Form</button>
+                <button className={style.hideInput} type='button' onClick={handleClick}>Hide Form</button>
                 <h1>Sale Input</h1>
             </div>
             <label>
