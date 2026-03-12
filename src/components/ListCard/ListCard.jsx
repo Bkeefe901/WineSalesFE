@@ -32,8 +32,6 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     });
   }
 
-
-
   async function handleDelete(obj) {
     const config = { ...options, data: { id: user._id } };
     const userConfirmed = confirm(
@@ -43,7 +41,10 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     if (userConfirmed) {
       try {
         console.log(obj._id);
-        await axios.delete(`https://winesalesbe.onrender.com/api/sale/${obj._id}`, config);
+        await axios.delete(
+          `https://winesalesbe.onrender.com/api/sale/${obj._id}`,
+          config,
+        );
         alert(`✅ Sale has been deleted from database!`);
         setList((prev) => !prev); // refreshes sale list
       } catch (err) {
@@ -57,23 +58,22 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
 
   // Filter All Sales fetched for user by params in search form
   const filteredData = saleData.filter((sale) => {
-    let date = sale.saleDate.split('T')[0];
+    let date = sale.saleDate.split("T")[0];
 
-    if(search.startDate !== "" && date < search.startDate){
-        return false;
+    if (search.startDate !== "" && date < search.startDate) {
+      return false;
     }
-    if(search.endDate !== "" && date > search.endDate){
-        return false;
+    if (search.endDate !== "" && date > search.endDate) {
+      return false;
     }
-    if(search.account !== "" && !(sale.shopName.includes(search.account))){
-        return false;
+    if (search.account !== "" && !sale.shopName.includes(search.account)) {
+      return false;
     }
-    if(search.invoiceId !== "" && !(sale.invoiceId.includes(search.invoiceId))){
-        return false;
+    if (search.invoiceId !== "" && !sale.invoiceId.includes(search.invoiceId)) {
+      return false;
     }
 
     return true;
-
   });
 
   // Create total variable to show total of all filtered objects
@@ -85,14 +85,9 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
 
   setGrandTotal(filteredTotal);
 
-
-
-  filteredData.sort((a, b) => a.saleDate - b.saleDate);
-
+  filteredData.sort((a, b) => new Date(b.saleDate) - new Date(a.saleDate));
 
   const saleInfo = filteredData.map((obj, i) => {
-
-  
     let date = obj.saleDate.split("T")[0];
     return edit.on && edit.id == obj._id ? (
       <EditRow setList={setList} edit={edit} setEdit={setEdit} />
@@ -102,8 +97,16 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
         <td>{date}</td>
         <td>{obj.shopName}</td>
         <td>{obj.total}</td>
-        <td><button className={style.btn} onClick={() => handleEdit(obj)}>Edit</button></td>
-        <td><button className={style.btn} onClick={() => handleDelete(obj)}>Delete</button></td>
+        <td>
+          <button className={style.btn} onClick={() => handleEdit(obj)}>
+            Edit
+          </button>
+        </td>
+        <td>
+          <button className={style.btn} onClick={() => handleDelete(obj)}>
+            Delete
+          </button>
+        </td>
       </tr>
     );
   });
@@ -122,9 +125,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
               <th>Delete</th>
             </tr>
           </thead>
-          <tbody>
-            {saleInfo}
-          </tbody>
+          <tbody>{saleInfo}</tbody>
         </table>
         {/* <article className={style.saleCard}>
           <h3>Invoice ID</h3>

@@ -13,7 +13,7 @@ export default function InputForm({ setList, setShowInput }) {
     let token = cookies.token;
     let options = { headers: { "x-auth-token": token }};
     let today = new Date().toISOString().split('T')[0];
-    
+
     const [ newSale, setNewSale ] = useState({
         user: user._id,
         invoiceId: "",
@@ -31,7 +31,7 @@ export default function InputForm({ setList, setShowInput }) {
         try {
             await axios.post(`https://winesalesbe.onrender.com/api/sale`, newSale, options);
             setList((prev) => !prev);
-            
+
         } catch (err) {
             console.error(err.message);
         }
@@ -50,8 +50,8 @@ export default function InputForm({ setList, setShowInput }) {
             </div>
             <label>
                 Invoice Id
-                <input 
-                    type="text" 
+                <input
+                    type="text"
                     name="invoiceId"
                     value={newSale.invoiceId}
                     onChange={handleChange}
@@ -59,7 +59,7 @@ export default function InputForm({ setList, setShowInput }) {
             </label>
             <label>
                 Sale Date
-                <input 
+                <input
                     type="date"
                     name="saleDate"
                     value={newSale.saleDate}
@@ -68,7 +68,7 @@ export default function InputForm({ setList, setShowInput }) {
             </label>
             <label>
                 Shop Name
-                <input 
+                <input
                     type="text"
                     name="shopName"
                     value={newSale.shopName}
@@ -77,7 +77,7 @@ export default function InputForm({ setList, setShowInput }) {
             </label>
             <label>
                 Total
-                <input 
+                <input
                     type="number"
                     name="total"
                     value={newSale.total}
