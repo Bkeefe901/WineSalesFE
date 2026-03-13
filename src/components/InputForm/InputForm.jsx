@@ -2,16 +2,11 @@ import style from './InputForm.module.css';
 import { useAuth } from "../../context/authContext/authContext";
 import { useUser } from "../../context/userContext/userContext";
 import { useState } from "react";
-import axios from "axios";
-
-
-
+import apiService from "../../utilities/apiService.mjs";
 
 export default function InputForm({ setList, setShowInput }) {
     const { user } = useUser();
     const { cookies } = useAuth();
-    let token = cookies.token;
-    let options = { headers: { "x-auth-token": token }};
     let today = new Date().toISOString().split('T')[0];
 
     const [ newSale, setNewSale ] = useState({
@@ -29,15 +24,14 @@ export default function InputForm({ setList, setShowInput }) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.post(`https://winesalesbe.onrender.com/api/sale`, newSale, options);
+            await apiService.createSale(newSale, cookies.token);
             setList((prev) => !prev);
-
         } catch (err) {
             console.error(err.message);
         }
     }
 
-    async function handleChange(e) {
+    function handleChange(e) {
         setNewSale({ ...newSale, [e.target.name]: e.target.value});
     }
 

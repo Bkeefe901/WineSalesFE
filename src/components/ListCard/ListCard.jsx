@@ -1,5 +1,5 @@
 import style from "./ListCard.module.css";
-import axios from "axios";
+import apiService from "../../utilities/apiService.mjs";
 import { useUser } from "../../context/userContext/userContext";
 import { useAuth } from "../../context/authContext/authContext";
 import { useState, useEffect } from "react";
@@ -17,8 +17,6 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
   }); // *****************************************
   const { user } = useUser();
   const { cookies } = useAuth();
-  let token = cookies.token;
-  let options = { headers: { "x-auth-token": token } };
 
   async function handleEdit(obj) {
     setEdit({
@@ -33,25 +31,18 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
   }
 
   async function handleDelete(obj) {
-    const config = { ...options, data: { id: user._id } };
     const userConfirmed = confirm(
       "Are you sure you want to delete this sale from the database?",
     );
 
     if (userConfirmed) {
       try {
-        console.log(obj._id);
-        await axios.delete(
-          `https://winesalesbe.onrender.com/api/sale/${obj._id}`,
-          config,
-        );
+        await apiService.deleteSale(obj._id, user._id, cookies.token);
         alert(`✅ Sale has been deleted from database!`);
         setList((prev) => !prev); // refreshes sale list
       } catch (err) {
         console.error(err.message);
-        alert(
-          `❌ The sale did not succesfully get removed from the database. Try again.`,
-        );
+        alert(`❌ The sale did not succesfully get removed from the database. Try again.`);
       }
     }
   }
@@ -83,13 +74,16 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     filteredTotal += sale.total;
   });
 
-  setGrandTotal(filteredTotal);
+  useEffect(() => {
+    setGrandTotal(filteredTotal);
+  }, [filteredTotal]);
+
 
   filteredData.sort((a, b) => new Date(b.saleDate) - new Date(a.saleDate));
 
   const saleInfo = filteredData.map((obj) => {
     let date = obj.saleDate.split("T")[0];
-    return edit.on && edit.id == obj._id ? (
+    return edit.on && edit.id === obj._id ? (
       <EditRow setList={setList} edit={edit} setEdit={setEdit} />
     ) : (
       <tr key={obj._id}>

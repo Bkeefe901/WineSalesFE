@@ -32,11 +32,11 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
         </label>
         <label>
           Account Name
-          <input type="string" onChange={handleChange} name="account" value={search.account}/>
+          <input type="text" onChange={handleChange} name="account" value={search.account}/>
         </label>
         <label>
           Invoice Number
-          <input type="string" onChange={handleChange} name="invoiceId" value={search.invoiceId}/>
+          <input type="text" onChange={handleChange} name="invoiceId" value={search.invoiceId}/>
         </label>
         <input type="submit" value="Clear Filters" />
       </form>

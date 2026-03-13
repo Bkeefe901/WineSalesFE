@@ -1,11 +1,9 @@
 import style from "./EditRow.module.css";
 import { useAuth } from "../../context/authContext/authContext";
-import axios from "axios";
+import apiService from "../../utilities/apiService.mjs";
 
 export default function EditRow({ edit, setEdit, setList }) {
   const { cookies } = useAuth();
-  let token = cookies.token;
-  let options = { headers: { "x-auth-token": token } };
   let date = new Date(edit.saleDate).toISOString().split("T")[0];
 
   function handleChange(e) {
@@ -22,16 +20,12 @@ export default function EditRow({ edit, setEdit, setList }) {
         total: edit.total,
       };
 
-      await axios.put(
-        `https://winesalesbe.onrender.com/api/sale/${edit.id}`,
-        updatedSale,
-        options,
-      );
+      await apiService.updateSale(edit.id, updatedSale, cookies.token);
       setList((prev) => !prev);
       setEdit({ ...edit, on: false });
     } catch (err) {
       console.error(err.message);
-      res.status(400).json({ msg: `❌ Sale was not updated, try again.` });
+      alert(`❌ Sale was not updated, try again.`);
     }
   }
 

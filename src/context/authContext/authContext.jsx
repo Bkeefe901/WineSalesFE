@@ -7,7 +7,7 @@ const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [cookies, setCookies, removeCookie] = useCookies();
 
-  const connStr = "https://winesalesbe.onrender.com/api";
+  const connStr = import.meta.env.VITE_API_URL;
 
   async function signUp(formData) {
     
