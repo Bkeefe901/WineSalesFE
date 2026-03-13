@@ -1,29 +1,32 @@
-.saleCard{
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.saleCard {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.table {
+  width: 85%;
+}
+
+.table > thead > tr > th {
+  font-size: x-large;
+}
+
+.table > tbody > tr > td {
+  font-size: large;
+}
+
+.btn {
+  width: 60px;
+  font-size: medium;
 }
 
 
-.tableContainer{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-}
 
-.table{
-   width: 85%;
-}
-
-.table>thead>tr>th{
-    font-size: large;
-
-}
-
-
-.btn{
-    width: 60px;
-    font-size: medium;
-}

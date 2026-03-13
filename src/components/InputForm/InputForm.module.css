@@ -1,58 +1,59 @@
 .saleInput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
 }
-
 
 .inputForm {
-    /* width: 400px; */
-    width: 100%;
-    padding: 25px;
-    background-color: var(--form2);
-    color: var(--form);
-    border-radius: 15px;
-    border: 3px solid var(--form);
+  /* width: 400px; */
+  width: 100%;
+  padding: 25px;
+  background-image: linear-gradient(to bottom, var(--form), var(--form2));
+  /* background-color: var(--form); */
+  color: var(--text);
+  border-radius: 15px;
 }
 
-.inputForm>div>button {
-    font-size: medium;
-    width: 200px;
+.inputForm > div > button {
+  font-size: medium;
+  width: 200px;
 }
 
-.inputForm>label{
-    font-size: large;
-    font-weight: 600;
+.inputForm > label {
+  font-size: large;
+  font-weight: 600;
 }
 
-.inputForm>label>input{
-    height: 40px;
-    font-size: large;
-    border-radius: 10px;
+.inputForm > label > input {
+  height: 40px;
+  font-size: large;
+  border-radius: 10px;
 }
 
-.inputForm>input{
-    border: 2px solid black;
-    line-height: 5px;
+.inputForm > label > input:focus {
+  outline: none;
+  border-color: white;
+}
+
+.inputForm > input {
+  line-height: 5px;
+  width: 50%;
+  height: 40px;
+  margin: auto;
 }
 
 .hideInput {
-    display: none;
+  display: none;
 }
-
-
 
 @media screen and (max-width: 500px) {
-    .saleInput {
-        width: 100%;
-    }
+  .saleInput {
+    width: 100%;
+  }
 
-    .hideInput {
-        display: inline;
-    }
+  .hideInput {
+    display: inline;
+  }
 }
-
-
-

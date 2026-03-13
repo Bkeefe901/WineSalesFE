@@ -95,7 +95,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
       <tr key={obj._id}>
         <td>{obj.invoiceId}</td>
         <td>{date}</td>
-        <td>{obj.shopName}</td>
+        <td>{obj.shopName.toUpperCase()}</td>
         <td>{obj.total}</td>
         <td>
           <button className={style.btn} onClick={() => handleEdit(obj)}>
@@ -127,7 +127,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
           </thead>
           <tbody>{saleInfo}</tbody>
         </table>
-     </div>
+      </div>
     </>
   );
 }
