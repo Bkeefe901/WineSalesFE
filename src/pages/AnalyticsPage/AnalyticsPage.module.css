@@ -1,0 +1,39 @@
+.container {
+  padding: 2rem;
+  width: 960px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+
+.select {
+  background-color: var(--form);
+  color: var(--text);
+  border: 1px solid var(--form2);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: 1px solid var(--form2);
+}
+
+.message {
+  text-align: center;
+  color: var(--text);
+}

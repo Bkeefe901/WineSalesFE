@@ -8,6 +8,7 @@ import apiService from "./utilities/apiService.mjs";
 // Pages
 import AuthPage from "./pages/AuthPage/AuthPage";
 import Dashboard from "./pages/DashBoard/DashBoard";
+import AnalyticsPage from "./pages/AnalyticsPage/AnalyticsPage";
 
 // Components
 import ProtectedRoutes from "./components/ProtectedRoutes";
@@ -41,6 +42,7 @@ function App() {
         <Route path="/" element={<AuthPage />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/dash" element={<Dashboard />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
         </Route>
       </Routes>
     </>

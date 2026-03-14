@@ -20,6 +20,9 @@ export default function Nav() {
           <Link to={"/dash"}>
             <h3>Dashboard</h3>
           </Link>
+          <Link to={"/analytics"}>
+            <h3>Analytics</h3>
+          </Link>
           <a href="">
             <h3 onClick={handleLogout}>Logout</h3>
           </a>
