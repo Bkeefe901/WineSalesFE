@@ -1,13 +1,11 @@
-import { createContext, useContext, useMemo } from "react";
-import { useCookies } from "react-cookie";
-import axios from "axios";
+import { createContext, useContext, useMemo } from "react"; import { useCookies } from "react-cookie"; import axios from "axios";
 
 const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
   const [cookies, setCookies, removeCookie] = useCookies();
 
-  const connStr = import.meta.env.VITE_API_URL;
+const connStr = "https://winesalesbe.onrender.com/api"; 
 
   async function signUp(formData) {
     
