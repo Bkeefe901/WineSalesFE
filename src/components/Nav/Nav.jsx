@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext/authContext";
 import { useUser } from "../../context/userContext/userContext";
 import style from "./Nav.module.css";
@@ -7,6 +7,11 @@ export default function Nav() {
   const { user } = useUser();
   const { logout } = useAuth();
   const nav = useNavigate();
+
+  function getNavLinkClass({ isActive }) {
+    return isActive ? style['active-nav'] : style['inactive-nav'];
+  }
+
 
   function handleLogout() {
     logout();
@@ -17,21 +22,21 @@ export default function Nav() {
     <nav className={style.nav}>
       {user ? (
         <>
-          <Link to={"/dash"}>
+          <NavLink to={"/dash"} className={getNavLinkClass}>
             <h3>Dashboard</h3>
-          </Link>
-          <Link to={"/analytics"}>
+          </NavLink>
+          <NavLink to={"/analytics"} className={getNavLinkClass}>
             <h3>Analytics</h3>
-          </Link>
+          </NavLink>
           <a href="">
             <h3 onClick={handleLogout}>Logout</h3>
           </a>
         </>
       ) : (
         <>
-          <Link to={"/"}>
+          <NavLink to={"/"} className={getNavLinkClass}>
             <h3>Login/SignUp</h3>
-          </Link>
+          </NavLink>
         </>
       )}
     </nav>

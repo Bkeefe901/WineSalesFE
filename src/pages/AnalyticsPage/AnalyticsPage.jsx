@@ -14,7 +14,20 @@ import {
 } from "recharts";
 import style from "./AnalyticsPage.module.css";
 
-const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
 function buildMonthlyTotals(sales, year) {
   const totals = new Array(12).fill(0);
@@ -43,9 +56,9 @@ export default function AnalyticsPage() {
         setSaleData(data);
 
         // Default to the most recent year that has data
-        const years = [...new Set(data.map((s) => new Date(s.saleDate).getFullYear()))].sort(
-          (a, b) => b - a
-        );
+        const years = [
+          ...new Set(data.map((s) => new Date(s.saleDate).getFullYear())),
+        ].sort((a, b) => b - a);
         if (years.length > 0) setSelectedYear(years[0]);
       } catch (err) {
         setError("Failed to load sales data.");
@@ -58,9 +71,9 @@ export default function AnalyticsPage() {
     if (user?._id) fetchSales();
   }, [user, cookies.token]);
 
-  const years = [...new Set(saleData.map((s) => new Date(s.saleDate).getFullYear()))].sort(
-    (a, b) => b - a
-  );
+  const years = [
+    ...new Set(saleData.map((s) => new Date(s.saleDate).getFullYear())),
+  ].sort((a, b) => b - a);
 
   const currentTotals = buildMonthlyTotals(saleData, selectedYear);
   const previousTotals = buildMonthlyTotals(saleData, selectedYear - 1);
@@ -96,9 +109,16 @@ export default function AnalyticsPage() {
 
       {!loading && !error && (
         <ResponsiveContainer width="100%" height={420}>
-          <LineChart data={chartData} margin={{ top: 20, right: 30, left: 10, bottom: 5 }}>
+          <LineChart
+            data={chartData}
+            margin={{ top: 20, right: 30, left: 10, bottom: 5 }}
+          >
             <CartesianGrid strokeDasharray="3 3" stroke="#4a5a7a" />
-            <XAxis dataKey="month" stroke="#fffcfa" tick={{ fill: "#fffcfa" }} />
+            <XAxis
+              dataKey="month"
+              stroke="#fffcfa"
+              tick={{ fill: "#fffcfa" }}
+            />
             <YAxis
               stroke="#fffcfa"
               tick={{ fill: "#fffcfa" }}
@@ -117,7 +137,7 @@ export default function AnalyticsPage() {
             <Line
               type="monotone"
               dataKey={String(selectedYear)}
-              stroke="#bb9457"
+              stroke="#2c3954"
               strokeWidth={2}
               dot={{ r: 4 }}
               activeDot={{ r: 6 }}
@@ -125,7 +145,7 @@ export default function AnalyticsPage() {
             <Line
               type="monotone"
               dataKey={String(selectedYear - 1)}
-              stroke="#7eb8c0"
+              stroke="orange"
               strokeWidth={2}
               dot={{ r: 4 }}
               activeDot={{ r: 6 }}

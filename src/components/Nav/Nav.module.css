@@ -5,6 +5,21 @@
 
 a {
   text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 15px;
+}
+
+a:focus {
+  background-color: var(--form2);
+}
+
+.active-nav {
+  background-color: var(--form2);
+}
+
+.inactive-nav {
+  background-color: var(--background);
 }
 
 nav > a > h3 {

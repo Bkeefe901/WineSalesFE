@@ -2,6 +2,8 @@
   padding: 2rem;
   width: 960px;
   margin: 0 auto;
+  background-color: var(--form2);
+  border-radius: 20px;
 }
 
 .title {
@@ -16,7 +18,7 @@
   gap: 0.75rem;
   justify-content: center;
   margin-bottom: 2rem;
-  color: var(--text);
+  color: var(--background);
 }
 
 .select {
@@ -35,5 +37,5 @@
 
 .message {
   text-align: center;
-  color: var(--text);
+  color: var(--background);
 }
