@@ -137,7 +137,7 @@ export default function AnalyticsPage() {
             <Line
               type="monotone"
               dataKey={String(selectedYear)}
-              stroke="#2c3954"
+              stroke="white"
               strokeWidth={2}
               dot={{ r: 4 }}
               activeDot={{ r: 6 }}

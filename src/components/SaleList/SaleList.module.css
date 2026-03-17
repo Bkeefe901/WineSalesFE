@@ -19,6 +19,22 @@
   width: 250px;
 }
 
+.uploadRow {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 25px;
+  margin-bottom: 12px;
+}
+
+.uploadRow > button {
+  font-size: large;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
 .totals {
   display: flex;
   justify-content: space-evenly;

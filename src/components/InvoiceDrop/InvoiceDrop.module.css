@@ -1,0 +1,190 @@
+.wrapper {
+  width: 48%;
+}
+
+.dropZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 160px;
+  padding: 25px;
+  border: 2px dashed var(--form2);
+  border-radius: 15px;
+  background-image: linear-gradient(to bottom, var(--form), var(--form2));
+  color: var(--text);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.dropZone:hover {
+  opacity: 0.85;
+}
+
+.dragOver {
+  opacity: 0.7;
+  border-color: var(--text);
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.dropText {
+  font-size: large;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.dropSubText {
+  font-size: medium;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.error {
+  color: #ffaaaa;
+  font-size: small;
+  margin-top: 8px;
+}
+
+/* Modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background-image: linear-gradient(to bottom, var(--form), var(--form2));
+  color: var(--text);
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  margin-bottom: 16px;
+}
+
+.modalHeader > h2 {
+  margin: 0;
+}
+
+/* Scrollable invoice list */
+.invoiceList {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 4px;
+  margin-bottom: 16px;
+}
+
+.invoiceRow {
+  display: grid;
+  grid-template-columns: 24px 1fr 1fr 1fr 1fr auto;
+  align-items: end;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid rgba(255, 252, 250, 0.25);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.invoiceIndex {
+  font-weight: 600;
+  opacity: 0.7;
+  font-size: small;
+  padding-bottom: 10px;
+}
+
+.invoiceRow > label {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  font-weight: 600;
+  gap: 4px;
+}
+
+.invoiceRow > label > input {
+  height: 36px;
+  font-size: medium;
+  border-radius: 8px;
+  padding: 0 8px;
+  border: none;
+  width: 100%;
+}
+
+.invoiceRow > label > input:focus {
+  outline: 1px solid white;
+}
+
+.removeBtn {
+  width: 100px;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 170, 170, 0.6);
+  background: transparent;
+  color: #ffaaaa;
+  cursor: pointer;
+  font-size: small;
+  white-space: nowrap;
+}
+
+.removeBtn:hover {
+  background-color: rgba(255, 100, 100, 0.2);
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+}
+
+.modalActions > input,
+.modalActions > button {
+  flex: 1;
+  height: 40px;
+  font-size: medium;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.modalActions > input:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 700px) {
+  .invoiceRow {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .invoiceIndex {
+    grid-column: 1 / -1;
+    padding-bottom: 0;
+  }
+
+  .removeBtn {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .wrapper {
+    width: 100%;
+  }
+}

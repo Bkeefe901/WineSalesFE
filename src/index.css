@@ -3,13 +3,8 @@
   --text: #fffcfa;
   --form: #785205;
   --form2: #bb9457;
-  /*
-   
-  --background: #432818;
-  --text: #FFE6A7;
-  --form: #6F1D1B;
-  --form2: #BB9457;
-   * */
+  --lightBackground: #676B85;
+  
 }
 
 html,

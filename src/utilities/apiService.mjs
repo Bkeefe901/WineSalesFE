@@ -34,4 +34,13 @@ async function deleteSale(saleId, userId, token) {
   return res.data;
 }
 
-export default { getUser, getSales, createSale, updateSale, deleteSale };
+async function parseInvoice(file, token) {
+  const formData = new FormData();
+  formData.append("pdf", file);
+  let res = await axios.post(`${baseURL}/invoice/parse`, formData, {
+    headers: { "x-auth-token": token },
+  });
+  return res.data;
+}
+
+export default { getUser, getSales, createSale, updateSale, deleteSale, parseInvoice };

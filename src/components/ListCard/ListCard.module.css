@@ -23,6 +23,16 @@
   font-size: large;
 }
 
+ tr:nth-child(odd) {
+    background-color: var(--background); 
+}
+
+
+tr:nth-child(even) {
+    background-color: var(--lightBackground); 
+}
+
+
 .btn {
   width: 60px;
   font-size: medium;
