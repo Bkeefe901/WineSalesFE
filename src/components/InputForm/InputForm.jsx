@@ -9,6 +9,8 @@ export default function InputForm({ setList, setShowInput }) {
     const { cookies } = useAuth();
     let today = new Date().toISOString().split('T')[0];
 
+    const [error, setError] = useState(null);
+
     const [ newSale, setNewSale ] = useState({
         user: user._id,
         invoiceId: "",
@@ -24,9 +26,12 @@ export default function InputForm({ setList, setShowInput }) {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
+            setError(null);
             await apiService.createSale(newSale, cookies.token);
             setList((prev) => !prev);
+            setNewSale({ user: user._id, invoiceId: "", saleDate: today, shopName: "", total: 0 });
         } catch (err) {
+            setError(err.response?.data?.msg ?? "Failed to add sale. Please try again.");
             console.error(err.message);
         }
     }
@@ -79,6 +84,7 @@ export default function InputForm({ setList, setShowInput }) {
                 />
             </label>
             <input type="submit" value="Add Sale" />
+            {error && <p className={style.error}>{error}</p>}
         </form>
     </div>
     )

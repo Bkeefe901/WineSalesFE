@@ -44,6 +44,13 @@
   margin: auto;
 }
 
+.error {
+  color: #ff6b6b;
+  font-size: medium;
+  text-align: center;
+  margin-top: 8px;
+}
+
 .hideInput {
   display: none;
 }
