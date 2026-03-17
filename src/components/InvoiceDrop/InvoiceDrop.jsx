@@ -69,15 +69,28 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
 
   async function handleSaveAll(e) {
     e.preventDefault();
-    try {
-      await Promise.all(
-        parsedSales.map((sale) => apiService.createSale(sale, cookies.token))
-      );
+    const results = await Promise.allSettled(
+      parsedSales.map((sale) => apiService.createSale(sale, cookies.token))
+    );
+
+    const failed = [];
+    let anySucceeded = false;
+
+    results.forEach((result, i) => {
+      if (result.status === "fulfilled") {
+        anySucceeded = true;
+      } else {
+        const msg = result.reason?.response?.data?.msg ?? "Failed to save.";
+        failed.push({ ...parsedSales[i], _error: msg });
+      }
+    });
+
+    if (failed.length === 0) {
       setList((prev) => !prev);
       setShowDrop(false);
-    } catch (err) {
-      setError("Failed to save one or more sales. Please try again.");
-      console.error(err);
+    } else {
+      if (anySucceeded) setList((prev) => !prev);
+      setParsedSales(failed);
     }
   }
 
@@ -119,7 +132,7 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
             <form onSubmit={handleSaveAll}>
               <div className={style.invoiceList}>
                 {parsedSales.map((sale, i) => (
-                  <div key={i} className={style.invoiceRow}>
+                  <div key={i} className={`${style.invoiceRow} ${sale._error ? style.invoiceRowError : ""}`}>
                     <span className={style.invoiceIndex}>#{i + 1}</span>
                     <label>
                       Invoice ID
@@ -157,6 +170,7 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
                         onChange={(e) => handleChange(i, e)}
                       />
                     </label>
+                    {sale._error && <p className={style.rowError}>{sale._error}</p>}
                     <button
                       type="button"
                       className={style.removeBtn}
