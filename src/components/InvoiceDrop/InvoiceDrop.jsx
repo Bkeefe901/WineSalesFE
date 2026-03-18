@@ -53,6 +53,7 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
       console.error(err);
     } finally {
       setLoading(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
     }
   }
 
