@@ -44,7 +44,7 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
       const data = await apiService.parseInvoice(file, cookies.token, initials);
       const arr = Array.isArray(data) ? data : [data];
       if (arr.length === 0) {
-        setError("No TK invoices found in this PDF.");
+        setError(`No ${initials || "matching"} invoices found in this PDF.`);
         return;
       }
       setParsedSales(arr.map((inv) => normalize(inv, user._id)));
