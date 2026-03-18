@@ -30,6 +30,10 @@ React 19 SPA built with Vite. Two routes: `/` (auth) and `/dash` (protected dash
 
 **Styling**: CSS Modules (`.module.css`) with vanilla CSS. Global theme variables in `src/index.css` (dark blue/brown palette). No CSS framework.
 
+## Known Tech Debt
+
+- **PO initials filter (InvoiceDrop)**: Currently the user's PO initials (used to filter invoice pages) are stored in `localStorage` and passed to the backend `POST /api/invoice/parse` endpoint as a `initials` form field. This should be migrated to a proper user profile field on the backend (user model + update route) so the setting persists across devices and is managed from a user settings page. See `InvoiceDrop.jsx` and `apiService.mjs`.
+
 ## Key Patterns
 
 - API functions in `apiService.mjs` accept `token` as a parameter — callers pull it from `useCookies`
