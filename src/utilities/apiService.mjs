@@ -34,9 +34,10 @@ async function deleteSale(saleId, userId, token) {
   return res.data;
 }
 
-async function parseInvoice(file, token) {
+async function parseInvoice(file, token, initials) {
   const formData = new FormData();
   formData.append("pdf", file);
+  if (initials) formData.append("initials", initials);
   let res = await axios.post(`${baseURL}/invoice/parse`, formData, {
     headers: { "x-auth-token": token },
   });

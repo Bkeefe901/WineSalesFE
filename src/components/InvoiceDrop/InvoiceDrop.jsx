@@ -25,6 +25,13 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [parsedSales, setParsedSales] = useState(null); // array or null
+  const [initials, setInitials] = useState(() => localStorage.getItem("poInitials") ?? "");
+
+  function handleInitialsChange(e) {
+    const val = e.target.value.toUpperCase().slice(0, 4);
+    setInitials(val);
+    localStorage.setItem("poInitials", val);
+  }
 
   async function processFile(file) {
     if (!file || file.type !== "application/pdf") {
@@ -34,7 +41,7 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
     setError(null);
     setLoading(true);
     try {
-      const data = await apiService.parseInvoice(file, cookies.token);
+      const data = await apiService.parseInvoice(file, cookies.token, initials);
       const arr = Array.isArray(data) ? data : [data];
       if (arr.length === 0) {
         setError("No TK invoices found in this PDF.");
@@ -96,6 +103,21 @@ export default function InvoiceDrop({ setList, setShowDrop }) {
 
   return (
     <div className={style.wrapper}>
+      {/* Initials Panel */}
+      <div className={style.initialsPanel}>
+        <label className={style.initialsLabel} htmlFor="poInitials">
+          PO<br />Initials
+        </label>
+        <input
+          id="poInitials"
+          className={style.initialsInput}
+          type="text"
+          value={initials}
+          onChange={handleInitialsChange}
+          placeholder="TK"
+        />
+      </div>
+
       {/* Drop Zone */}
       <div
         className={`${style.dropZone} ${dragOver ? style.dragOver : ""}`}
