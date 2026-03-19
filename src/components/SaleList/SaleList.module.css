@@ -54,3 +54,56 @@
   }
 }
 
+.pdfButton {
+  margin-top: 15px;
+  background-color: var(--form2);
+  width: 250px;
+}
+
+/* ── Print-only header ─────────────────────────────────────────────────────
+   Shown only when printing — provides report title, active filters, and
+   totals in place of the interactive form UI that gets hidden below.
+   ───────────────────────────────────────────────────────────────────────── */
+.printHeader {
+  /* Hidden in the browser; the @media print block below reveals it */
+  display: none;
+}
+
+.printFilters {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.printButton {
+  width: 200px;
+  font-size: large;
+  border-radius: 5px;
+}
+
+/* ── @media print ──────────────────────────────────────────────────────────
+   Rules that apply only when the user triggers print or Save as PDF.
+   ───────────────────────────────────────────────────────────────────────── */
+@media print {
+  /* Hide all the interactive UI — only the table and summary should print */
+  .formContainer,
+  .uploadRow,
+  .totals,
+  .printButton {
+    display: none;
+  }
+
+  /* Reveal the static print header */
+  .printHeader {
+    display: block;
+    color: #000;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+  }
+
+  /* Let the table fill the full page width instead of being flex-centered */
+  .saleListMain {
+    display: block;
+  }
+}
+

@@ -14,7 +14,7 @@ export default function ListCard({ setGrandTotal, setList, saleData, search }) {
     saleDate: "",
     shopName: "",
     total: 0,
-  }); // *****************************************
+  });
   const { user } = useUser();
   const { cookies } = useAuth();
 

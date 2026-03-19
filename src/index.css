@@ -22,3 +22,27 @@ body {
 *::after {
   box-sizing: inherit;
 }
+
+/* ── Print styles ──────────────────────────────────────────────────────────
+   Override the dark theme for clean printing/PDF export.
+   The browser print dialog handles page breaks and paper size.
+   ───────────────────────────────────────────────────────────────────────── */
+@media print {
+
+  /* Reset dark background and text to print-friendly white/black */
+  html,
+  body {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+
+  /* Override the alternating row colors defined in ListCard.module.css
+     (those rules are global, so we override them globally here too) */
+  tr:nth-child(odd) {
+    background-color: #fff !important;
+  }
+
+  tr:nth-child(even) {
+    background-color: #efefef !important;
+  }
+}

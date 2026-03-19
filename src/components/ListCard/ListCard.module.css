@@ -37,3 +37,36 @@ tr:nth-child(even) {
   width: 60px;
   font-size: medium;
 }
+
+/* ── @media print ──────────────────────────────────────────────────────────
+   Clean up the table for print/PDF output.
+   ───────────────────────────────────────────────────────────────────────── */
+@media print {
+  /* Stretch the table to full page width */
+  .tableContainer {
+    width: 100%;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #000;
+  }
+
+  /* Add visible borders so rows are easy to read on paper */
+  .table th,
+  .table td {
+    border: 1px solid #ccc;
+    padding: 6px 8px;
+    font-size: medium;
+  }
+
+  /* Hide the Edit and Delete columns (5th and 6th) —
+     they're interactive controls that have no meaning on a printed page */
+  .table thead tr th:nth-child(5),
+  .table thead tr th:nth-child(6),
+  .table tbody tr td:nth-child(5),
+  .table tbody tr td:nth-child(6) {
+    display: none;
+  }
+}

@@ -29,3 +29,10 @@ nav > a > h3 {
 nav > a > h3:hover {
   color: var(--text);
 }
+
+@media print {
+  /* Hide the navigation bar entirely */
+  .nav {
+    display: none;
+  }
+}

@@ -34,6 +34,28 @@ export default function SaleList({ setList, saleData }) {
 
     return (
         <div className={style.setListMain}>
+
+            {/* Print-only header — hidden in the browser, shown when printing.
+                Displays report title, any active filters, and the totals summary
+                so the printed page has context without the interactive form UI. */}
+            <div className={style.printHeader}>
+                <h2>Sales Report</h2>
+                {/* Only render filter details if at least one filter is active */}
+                {(search.startDate || search.endDate || search.account || search.invoiceId) && (
+                    <p className={style.printFilters}>
+                        {search.startDate && <span>From: {search.startDate} </span>}
+                        {search.endDate   && <span>To: {search.endDate} </span>}
+                        {search.account   && <span>Account: {search.account} </span>}
+                        {search.invoiceId && <span>Invoice: {search.invoiceId}</span>}
+                    </p>
+                )}
+                <p>
+                    <strong>Total:</strong> ${grandTotal.toFixed(2)}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <strong>Commission (3%):</strong> ${(grandTotal * 0.03).toFixed(2)}
+                </p>
+            </div>
+
             <section className={style.formContainer}>
             {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
             {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>}
@@ -41,7 +63,7 @@ export default function SaleList({ setList, saleData }) {
             <div className={style.uploadRow}>
                 {showDrop
                     ? <InvoiceDrop setList={setList} setShowDrop={setShowDrop} />
-                    : <button onClick={() => setShowDrop(true)}>Upload Invoice PDF</button>
+                    : <button className={style.pdfButton} onClick={() => setShowDrop(true)}>Upload Invoice PDF</button>
                 }
             </div>
             <section className={style.totals}>
@@ -53,8 +75,14 @@ export default function SaleList({ setList, saleData }) {
                     <h1>Commision:</h1>
                     <h3>{(grandTotal * 0.03).toFixed(2)}</h3>
                 </div>
-
             </section>
+
+            {/* Print button — triggers the browser's native print/save-as-PDF dialog.
+                Hidden automatically via @media print so it won't appear in the output. */}
+            <button className={style.printButton} onClick={() => window.print()}>
+                Print / Save as PDF
+            </button>
+
             <ListCard setGrandTotal={setGrandTotal} saleData={saleData} setList={setList} search={search} />
 
         </div>
