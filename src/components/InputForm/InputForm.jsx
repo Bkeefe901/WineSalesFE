@@ -4,7 +4,7 @@ import { useUser } from "../../context/userContext/userContext";
 import { useState } from "react";
 import apiService from "../../utilities/apiService.mjs";
 
-export default function InputForm({ setList, setShowInput }) {
+export default function InputForm({ setList }) {
     const { user } = useUser();
     const { cookies } = useAuth();
     let today = new Date().toISOString().split('T')[0];
@@ -44,7 +44,7 @@ export default function InputForm({ setList, setShowInput }) {
     <div className={style.saleInput}>
         <form className={style.inputForm} onSubmit={handleSubmit}>
             <div>
-                <button className={style.hideInput} type='button' onClick={handleClick}>Hide Form</button>
+                {/* <button className={style.hideInput} type='button' onClick={handleClick}>Hide Form</button> */}
                 <h1>Sale Input</h1>
             </div>
             <label>

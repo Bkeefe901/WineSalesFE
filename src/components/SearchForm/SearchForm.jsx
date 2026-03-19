@@ -1,10 +1,8 @@
 import style from "./SearchForm.module.css";
 
-export default function SearchForm({ setSearch, search, setShowSearch }) {
+export default function SearchForm({ setSearch, search }) {
 
-  function handleClick(){
-    setShowSearch((prev) => !prev);
-  }
+
 
   function handleChange(e) {
     setSearch({ ...search, [e.target.name]: e.target.value });
@@ -19,7 +17,7 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
     <div className={style.searchContainer}>
       <form className={style.searchForm} onSubmit={handleSubmit}>
         <div>
-        <button className={style.hideButton} onClick={handleClick}>Hide Filters</button>
+        {/* <button className={style.hideButton} onClick={handleClick}>Hide Filters</button> */}
         <h1>Filter Form</h1>
         </div>
         <label>

@@ -14,21 +14,16 @@ export default function SaleList({ setList, saleData }) {
     // Total for all shown Sales
     const [grandTotal, setGrandTotal] = useState(0);
 
-    // Toggle to display SearchForm
-    const [showSearch, setShowSearch] = useState(true);
+    // Toggle to displays
+    const [toggle, setToggle] = useState(true);
 
-    // Toggle to display InputForm
-    const [showInput, setShowInput] = useState(true);
 
     // Toggle to display InvoiceDrop
     const [showDrop, setShowDrop] = useState(false);
 
-    function handleClick() {
-        setShowSearch((prev) => !prev);
-    }
 
-    function handleInput() {
-        setShowInput((prev) => !prev);
+    function handleFormToggle(e){
+        setToggle((prev) => !prev);
     }
 
 
@@ -57,8 +52,14 @@ export default function SaleList({ setList, saleData }) {
             </div>
 
             <section className={style.formContainer}>
-            {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
-            {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>}
+            {/* {showInput ? <InputForm setShowInput={setShowInput} setList={setList} /> : <button onClick={handleInput}>Show Search</button>}
+            {showSearch ? <SearchForm setSearch={setSearch} search={search} setShowSearch={setShowSearch}/> : <button onClick={handleClick}>Show Filters</button>} */}
+            <div className={style.saleInput}>
+                <button className={style.formToggle} onClick={handleFormToggle}>Toggle Input/Filter Form</button>
+                {toggle 
+                    ? <InputForm  setList={setList} /> 
+                    : <SearchForm setSearch={setSearch} search={search} /> }
+            </div>
             </section>
             <div className={style.uploadRow}>
                 {showDrop

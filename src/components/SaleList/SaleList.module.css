@@ -1,8 +1,24 @@
+.saleInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48%;
+}
+
+
 .saleListMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.formToggle {
+  height: 40px;
+  border-radius: 10px;
+  font-size: medium;
+  margin-bottom: 10px;
 }
 
 /* .setListMain>button{
