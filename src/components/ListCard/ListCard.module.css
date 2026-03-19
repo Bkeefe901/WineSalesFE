@@ -17,7 +17,9 @@
 
 .table > thead > tr > th {
   font-size: x-large;
-}
+  background-color: rgb(36, 47, 67);
+  height: 55px;
+} 
 
 .table > tbody > tr > td {
   font-size: large;
