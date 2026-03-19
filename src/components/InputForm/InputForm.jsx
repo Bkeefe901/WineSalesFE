@@ -83,7 +83,7 @@ export default function InputForm({ setList, setShowInput }) {
                     onChange={handleChange}
                 />
             </label>
-            <input type="submit" value="Add Sale" />
+            <input className={style.addSaleButton} type="submit" value="Add Sale" />
             {error && <p className={style.error}>{error}</p>}
         </form>
     </div>

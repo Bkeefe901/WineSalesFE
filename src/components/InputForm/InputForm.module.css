@@ -39,9 +39,10 @@
 
 .inputForm > input {
   line-height: 5px;
-  width: 50%;
+  width: 40%;
   height: 40px;
   margin: auto;
+  border-radius: 10px;
 }
 
 .error {
@@ -54,6 +55,11 @@
 .hideInput {
   display: none;
 }
+
+.addSaleButton{
+  font-size: large;
+}
+
 
 @media screen and (max-width: 500px) {
   .saleInput {

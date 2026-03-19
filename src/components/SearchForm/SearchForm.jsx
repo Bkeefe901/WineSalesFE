@@ -38,7 +38,7 @@ export default function SearchForm({ setSearch, search, setShowSearch }) {
           Invoice Number
           <input type="text" onChange={handleChange} name="invoiceId" value={search.invoiceId}/>
         </label>
-        <input type="submit" value="Clear Filters" />
+        <input className={style.clearButton} type="submit" value="Clear Filters" />
       </form>
       
     </div>

@@ -44,9 +44,14 @@
 
 .searchForm > input {
   line-height: 5px;
-  width: 50%;
+  width: 40%;
   height: 40px;
   margin: auto;
+  border-radius: 10px;
+}
+
+.clearButton {
+  font-size: large;
 }
 
 .hideButton {
