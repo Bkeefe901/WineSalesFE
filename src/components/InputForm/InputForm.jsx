@@ -21,10 +21,6 @@ export default function InputForm({ setList }) {
 
   const [showToast, setShowToast] = useState(false);
 
-  function handleClick() {
-    setShowInput((prev) => !prev);
-  }
-
   function showSnackBar() {
     setShowToast(true);
     setTimeout(() => {
@@ -62,7 +58,6 @@ export default function InputForm({ setList }) {
     <div className={style.saleInput}>
       <form className={style.inputForm} onSubmit={handleSubmit}>
         <div>
-          {/* <button className={style.hideInput} type='button' onClick={handleClick}>Hide Form</button> */}
           <h1>Sale Input</h1>
         </div>
         <label>
