@@ -6,7 +6,6 @@
   width: 48%;
 }
 
-
 .saleListMain {
   display: flex;
   flex-direction: column;
@@ -19,6 +18,8 @@
   border-radius: 10px;
   font-size: medium;
   margin-bottom: 10px;
+  width: 300px;
+  background-color: gold;
 }
 
 /* .setListMain>button{
@@ -32,7 +33,7 @@
   margin-top: 4px;
   font-size: large;
   line-height: 5px;
-  width: 250px;
+  width: 350px;
 }
 
 .uploadRow {
@@ -122,4 +123,3 @@
     display: block;
   }
 }
-

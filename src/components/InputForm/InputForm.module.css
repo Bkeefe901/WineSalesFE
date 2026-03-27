@@ -56,10 +56,33 @@
   display: none;
 }
 
-.addSaleButton{
+.addSaleButton {
   font-size: large;
 }
 
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.visible,
+.invisible {
+  position: fixed;
+  top: 20px;
+  left: 80%;
+  transform: translateX(-50%);
+  background: green;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+}
 
 @media screen and (max-width: 500px) {
   .saleInput {
